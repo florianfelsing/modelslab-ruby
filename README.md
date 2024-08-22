@@ -1,24 +1,68 @@
 # Modelslab::Ruby
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/modelslab/ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provides a Ruby interface to the ModelsLab API, focusing on the text-to-image endpoint. It allows you to easily integrate ModelsLab's AI image generation capabilities into your Ruby applications.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem "modelslab-ruby"
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+And then execute:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+```ruby
+bundle install
+```
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Or install it yourself as:
+
+```ruby
+gem install modelslab-ruby
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+First, configure the gem with your API key:
+
+```ruby
+require "modelslab"
+
+ModelsLab.configure do |config|
+  config.api_key = "your-api-key"
+end
+```
+
+Then, you can use the client to generate images:
+
+```ruby
+client = ModelsLab::Client.new
+
+response = client.images.text2img(
+  parameters: {
+    prompt: "A beautiful sunset over the ocean",
+    model_id: "some_model_id",
+    width: 576,
+    height: 576,
+    samples: 1,
+    num_inference_steps: 31,
+    safety_checker: "no",
+    enhance_prompt: "yes",
+    seed: nil,
+    guidance_scale: 7.5,
+    scheduler: "UniPCMultistepScheduler",
+    tomesd: "yes",
+    use_karras_sigmas: "yes",
+    multi_lingual: "no",
+    panorama: "no",
+    self_attention: "no",
+    vae: nil
+  }
+)
+
+puts response
+```
 
 ## Development
 
