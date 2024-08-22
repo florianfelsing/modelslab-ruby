@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "faraday"
 require "faraday/multipart"
 
@@ -29,7 +31,7 @@ module ModelsLab
   class Configuration
     attr_accessor :api_key, :uri_base, :request_timeout, :extra_headers
 
-    DEFAULT_URI_BASE = "https://modelslab.com/api/v6".freeze
+    DEFAULT_URI_BASE = "https://modelslab.com/api/v6"
     DEFAULT_REQUEST_TIMEOUT = 120
 
     def initialize

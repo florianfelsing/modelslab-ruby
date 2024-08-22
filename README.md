@@ -40,29 +40,38 @@ Then, you can use the client to generate images:
 client = ModelsLab::Client.new
 
 response = client.images.text2img(
-  parameters: {
-    prompt: "A beautiful sunset over the ocean",
-    model_id: "some_model_id",
-    width: 576,
-    height: 576,
+  prompt: "A beautiful sunset over the ocean",
+  model_id: "realistic-vision-v51"
+)
+
+puts response
+```
+
+You can find a list of all the models that are currently available under this URL: https://modelslab.com/models
+
+### Additional Options
+
+You can pass additional options to customize the image generation process. These options are passed as a hash to the `text2img` method. Here's an example with some common options:
+
+```ruby
+response = client.images.text2img(
+  prompt: "A beautiful sunset over the ocean",
+  model_id: "realistic-vision-v51",
+  options: {
+    width: 768,
+    height: 768,
     samples: 1,
     num_inference_steps: 31,
-    safety_checker: "no",
     enhance_prompt: "yes",
-    seed: nil,
     guidance_scale: 7.5,
-    scheduler: "UniPCMultistepScheduler",
-    tomesd: "yes",
-    use_karras_sigmas: "yes",
-    multi_lingual: "no",
-    panorama: "no",
-    self_attention: "no",
-    vae: nil
+    seed: 1234567890
   }
 )
 
 puts response
 ```
+
+Please refer to the official API documentation for more information: https://docs.modelslab.com/image-generation/community-models/overview
 
 ## Development
 
@@ -72,12 +81,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/modelslab-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/modelslab-ruby/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/florianfelsing/modelslab-ruby.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Modelslab::Ruby project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/modelslab-ruby/blob/main/CODE_OF_CONDUCT.md).
