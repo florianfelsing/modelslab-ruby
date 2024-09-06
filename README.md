@@ -49,6 +49,15 @@ puts response
 
 You can find a list of all the models that are currently available under this URL: https://modelslab.com/models
 
+When your the API response indicates that your request is still being processed, you can use the `fetch_queued_images`
+method to check for a queued image.
+
+```ruby
+queued_image = client.images.fetch_queued_image(request_id: "your-request-id")
+
+puts queued_image
+```
+
 ### Additional Options
 
 You can pass additional options to customize the image generation process. These options are passed as a hash to the `text2img` method. Here's an example with some common options:

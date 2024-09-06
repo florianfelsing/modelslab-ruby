@@ -15,5 +15,14 @@ module ModelsLab
 
       @client.json_post(path: "images/text2img", parameters: parameters)
     end
+
+    def fetch_queued_image(request_id:)
+      parameters = {
+        key: @client.api_key,
+        request_id: request_id
+      }
+
+      @client.json_post(path: "images/fetch", parameters: parameters)
+    end
   end
 end
