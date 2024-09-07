@@ -20,5 +20,9 @@ module ModelsLab
     def images
       @images ||= ModelsLab::Images.new(client: self)
     end
+
+    def enterprise
+      @enterprise ||= Enterprise.new(client: self)
+    end
   end
 end

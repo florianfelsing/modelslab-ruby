@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-09-06
+
+### Added
+- Implemented `ModelsLab::Enterprise` class for enterprise-level API access
+
 ## [0.2.0] - 2024-09-05
 
 ### Added

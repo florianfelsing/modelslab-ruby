@@ -26,7 +26,8 @@ Gem::Specification.new do |spec|
     "lib/modelslab/version.rb",
     "lib/modelslab/client.rb",
     "lib/modelslab/http.rb",
-    "lib/modelslab/images.rb"
+    "lib/modelslab/images.rb",
+    "lib/modelslab/enterprise.rb"
   ]
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }

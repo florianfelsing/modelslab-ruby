@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ModelsLab
-  class Images
+  class Enterprise
     def initialize(client:)
       @client = client
     end
@@ -13,7 +13,7 @@ module ModelsLab
         model_id: model_id
       }.merge(options)
 
-      @client.json_post(path: "v6/images/text2img", parameters: parameters)
+      @client.json_post(path: "v1/enterprise/text2img", parameters: parameters)
     end
 
     def fetch_queued_image(request_id:)
@@ -22,7 +22,7 @@ module ModelsLab
         request_id: request_id
       }
 
-      @client.json_post(path: "v6/images/fetch", parameters: parameters)
+      @client.json_post(path: "v1/enterprise/fetch", parameters: parameters)
     end
   end
 end

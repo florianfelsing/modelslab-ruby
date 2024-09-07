@@ -7,6 +7,7 @@ require_relative "modelslab/version"
 require_relative "modelslab/http"
 require_relative "modelslab/client"
 require_relative "modelslab/images"
+require_relative "modelslab/enterprise"
 
 module ModelsLab
   class Error < StandardError; end
@@ -31,7 +32,7 @@ module ModelsLab
   class Configuration
     attr_accessor :api_key, :uri_base, :request_timeout, :extra_headers
 
-    DEFAULT_URI_BASE = "https://modelslab.com/api/v6"
+    DEFAULT_URI_BASE = "https://modelslab.com/api"
     DEFAULT_REQUEST_TIMEOUT = 120
 
     def initialize
